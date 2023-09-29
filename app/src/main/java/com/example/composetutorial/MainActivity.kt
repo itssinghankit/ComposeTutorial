@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun btton() {
+fun Btton() {
     Button(
         onClick = { /*TODO*/ },
         colors = ButtonDefaults.buttonColors(
@@ -48,7 +48,7 @@ fun btton() {
 }
 
 @Composable
-fun images() {
+fun Images() {
     Image(
         painter = painterResource(id = R.drawable.img),
         contentDescription = "good question",
