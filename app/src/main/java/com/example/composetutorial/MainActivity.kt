@@ -4,10 +4,16 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -18,6 +24,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -32,13 +39,64 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Say_hello("ankit")
+//            Say_hello("ankit")
+            PreviewFunction()
 
         }
     }
 }
 
-@Preview(showSystemUi = true)
+@Preview(showSystemUi = true, widthDp = 300, heightDp = 500)
+@Composable
+fun PreviewFunc() {
+//    Column() {
+//        RecyclerItem(R.drawable.a, "Ankit Singh", "Software Developer")
+//        RecyclerItem(R.drawable.a, "Pushkar Khare", "Software Developer")
+//        RecyclerItem(R.drawable.a, "Akshat Mishra", "Software Developer")
+//        RecyclerItem(R.drawable.a, "Siddhant Gurung", "Software Developer")
+//
+//    }
+
+    TextModifier()
+
+}
+
+@Composable
+fun TextModifier() {
+    Image(
+        painter = painterResource(id = R.drawable.img),
+        contentDescription = "",
+        contentScale = ContentScale.Crop,
+        modifier = Modifier
+            .size(20.dp)
+            .padding(8.dp)
+            .background(color = Color.Blue)
+            .clip(CircleShape)
+            .clickable { }
+            .border(2.dp, Color.White)
+    )
+
+}
+
+@Composable
+fun RecyclerItem(imgId: Int, name: String, occupation: String) {
+    Row(Modifier.padding(8.dp), horizontalArrangement = Arrangement.Center) {
+        Image(painter = painterResource(id = imgId), contentDescription = "", Modifier.size(60.dp))
+        Column {
+            Text(text = name, fontSize = 22.sp, fontWeight = FontWeight.Bold)
+            Text(text = occupation, fontSize = 18.sp, fontWeight = FontWeight.Thin)
+        }
+    }
+}
+
+@Composable
+fun Boxi() {
+    Box(contentAlignment = Alignment.Center) {
+        Image(painter = painterResource(id = R.drawable.img), contentDescription = "hello")
+        Text(text = "hello")
+    }
+}
+
 @Composable
 fun Rows() {
     Row(
@@ -60,7 +118,7 @@ fun Rows() {
 @OptIn(ExperimentalMaterial3Api::class)
 //@Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun Text() {
+fun Texti() {
     val state = remember { mutableStateOf("") }
     TextField(
         value = state.value,
